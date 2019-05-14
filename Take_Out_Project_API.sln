@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.352
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Take_Out_Project_API", "Take_Out_Project_API\Take_Out_Project_API.csproj", "{57815770-EB78-4ACF-9F88-98BBC59701FE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{57815770-EB78-4ACF-9F88-98BBC59701FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57815770-EB78-4ACF-9F88-98BBC59701FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57815770-EB78-4ACF-9F88-98BBC59701FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57815770-EB78-4ACF-9F88-98BBC59701FE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7FBD30EA-7AC9-420C-A740-69F66DADC6EE}
+	EndGlobalSection
+EndGlobal

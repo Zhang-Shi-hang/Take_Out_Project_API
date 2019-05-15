@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using ModelInfo;
+using Model;
 namespace DAL
 {
     public class WqbDAL
@@ -14,12 +14,12 @@ namespace DAL
         /// </summary>
         /// <param name="id">用户id</param>
         /// <returns></returns>
-        public List<ModelInfo.ModelInfo> OrderShow(Guid id)
+        public List<ModelInfo> OrderShow(Guid id)
         {
             string sql = @"select * from OrderTable a join DetailTable b
             on a.OrderId = b.Oid join UserInfo c on a.Uid = c.UserId
             where a.Uid = " + id;
-            var list = db.GetToList<ModelInfo.ModelInfo>(sql);
+            var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
         /// <summary>
@@ -40,10 +40,10 @@ namespace DAL
         /// </summary>
         /// <param name="id">订单id</param>
         /// <returns></returns>
-        public ModelInfo.ModelInfo FtOrder(Guid id)
+        public ModelInfo FtOrder(Guid id)
         {
             string sql = "select * from DetailTable where Oid=" + id;
-            var mo = db.GetToList<ModelInfo.ModelInfo>(sql).FirstOrDefault();
+            var mo = db.GetToList<ModelInfo>(sql).FirstOrDefault();
             return mo;
         }
 
@@ -54,12 +54,12 @@ namespace DAL
         /// <param name="uid">用户ID</param>
         /// <param name="oid">订单ID</param>
         /// <returns></returns>
-        public List<ModelInfo.ModelInfo> OrderInfo(Guid uid, Guid oid)
+        public List<ModelInfo> OrderInfo(Guid uid, Guid oid)
         {
             string sql = string.Format(@"select * from OrderTable a join DetailTable b
 	        on a.OrderId=b.Oid join UserInfo c on a.Uid=c.UserId
 	        where a.Uid={0} and a.OrderId={1}", uid, oid);
-            var list = db.GetToList<ModelInfo.ModelInfo>(sql);
+            var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
     }

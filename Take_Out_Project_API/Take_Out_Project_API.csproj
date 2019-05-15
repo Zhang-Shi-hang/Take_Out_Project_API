@@ -116,7 +116,7 @@
       <Project>{03a76b50-98f4-488d-bc64-dc736b4fd0f7}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ModelInfo\ModelInfo.csproj">
+    <ProjectReference Include="..\ModelInfo\Model.csproj">
       <Project>{90f2133b-813c-42fd-90f7-5f0f9c1dbda9}</Project>
       <Name>ModelInfo</Name>
     </ProjectReference>

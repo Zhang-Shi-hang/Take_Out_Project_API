@@ -58,6 +58,7 @@ namespace ModelInfo
         public DateTime OrderTime { get; set; }//订单时间
         public string OrderRemark { get; set; }//订单备注
         public decimal OrderPrice { get; set; }//订单价格
+        public bool RepastWay { get; set; }
         //public Guid Uid { get; set; }//用户外键
         /// <summary>
         /// 店铺表

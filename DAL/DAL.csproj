@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAL</RootNamespace>
     <AssemblyName>DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +51,19 @@
     <ProjectReference Include="..\ModelInfo\ModelInfo.csproj">
       <Project>{90f2133b-813c-42fd-90f7-5f0f9c1dbda9}</Project>
       <Name>ModelInfo</Name>
+    </ProjectReference>
+    <Compile Include="WqbDAL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModelInfo\ModelInfo.csproj">
+      <Project>{90f2133b-813c-42fd-90f7-5f0f9c1dbda9}</Project>
+      <Name>ModelInfo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ModelInfo\Model.csproj">
+      <Project>{90f2133b-813c-42fd-90f7-5f0f9c1dbda9}</Project>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

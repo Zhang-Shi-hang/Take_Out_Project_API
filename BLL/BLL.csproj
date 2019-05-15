@@ -42,6 +42,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ZrwBll.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{27eec076-7df1-46f1-8d3e-90091606693c}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ModelInfo\ModelInfo.csproj">
+      <Project>{90f2133b-813c-42fd-90f7-5f0f9c1dbda9}</Project>
+      <Name>ModelInfo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

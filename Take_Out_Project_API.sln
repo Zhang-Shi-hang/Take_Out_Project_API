@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Take_Out_Project_API", "Take_Out_Project_API\Take_Out_Project_API.csproj", "{57815770-EB78-4ACF-9F88-98BBC59701FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModelInfo", "ModelInfo\ModelInfo.csproj", "{90F2133B-813C-42FD-90F7-5F0F9C1DBDA9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "ModelInfo\Model.csproj", "{90F2133B-813C-42FD-90F7-5F0F9C1DBDA9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{03A76B50-98F4-488D-BC64-DC736B4FD0F7}"
 EndProject

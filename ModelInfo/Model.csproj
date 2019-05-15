@@ -7,6 +7,9 @@
     <ProjectGuid>{90F2133B-813C-42FD-90F7-5F0F9C1DBDA9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <RootNamespace>ModelInfo</RootNamespace>
     <AssemblyName>ModelInfo</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>

@@ -51,5 +51,24 @@ namespace BLL
         {
             return dal.OrderInfo(uid, oid);
         }
+
+        /// <summary>
+        /// 退款表添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int Refund(ModelInfo m)
+        {
+            return dal.Refund(m);
+        }
+        /// <summary>
+        /// 评论添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int Comment(ModelInfo m)
+        {
+            return dal.Comment(m);
+        }
     }
 }

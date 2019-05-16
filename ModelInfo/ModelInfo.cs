@@ -24,6 +24,11 @@ namespace Model
         /// 明细表
         /// </summary>
         public Guid DetailId { get; set; }//明细主键Id
+        public Guid Gid { get; set; }//菜品外键
+        public decimal Gprice { get; set; }//菜品价格
+        public int Gnum { get; set; }//菜品数量
+        public int Gsum { get; set; }//菜品总价
+        public Guid Oid { get; set; }//订单外键
         public decimal Gprice { get; set; }//菜品价格   --可用可不用
         public int Gnum { get; set; }//菜品数量
         #endregion
@@ -104,7 +109,7 @@ namespace Model
         public string UserImgUrl { get; set; }//用户图片
         public int UserIntegral { get; set; }//用户积分
         public int UserStatic { get; set; }//用户状态
-        #endregion
+
 
         #region 退单表
         /// <summary>

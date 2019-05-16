@@ -25,6 +25,7 @@ namespace Model
         public Guid Oid { get; set; }//订单外键
         public decimal Gprice { get; set; }//菜品价格
         public int Gnum { get; set; }//菜品数量1
+        public int OenId { get; set; }//订单编号外键
         /// <summary>
         /// 菜品表
         /// </summary>
@@ -89,11 +90,13 @@ namespace Model
         public int UserIntegral { get; set; }//用户积分
         public int UserStatic { get; set; }//用户状态
 
-
+        public Guid RefundId { get; set; }
+        public string RefundCause { get; set; }
+        public string RefundExplain { get; set; }
+        //public Guid Oid { get; set; }
 
         //外键
         public Guid Uid { get; set; }//用户外键
         public Guid Sid { get; set; }//店铺外键
-
     }
 }

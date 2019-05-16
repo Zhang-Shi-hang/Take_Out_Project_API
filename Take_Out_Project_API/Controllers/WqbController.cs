@@ -60,5 +60,10 @@ namespace Take_Out_Project_API.Controllers
         {
             return bll.OrderInfo(uid, oid);
         }
+        [HttpGet]
+        public string SHow()
+        {
+            return "少时诵诗书所所";
+        }
     }
 }

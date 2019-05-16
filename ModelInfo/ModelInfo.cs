@@ -88,7 +88,13 @@ namespace Model
         public string UserImgUrl { get; set; }//用户图片
         public int UserIntegral { get; set; }//用户积分
         public int UserStatic { get; set; }//用户状态
-
+        /// <summary>
+        /// 退款表
+        /// </summary>
+        public int RefundId { get; set; }  //退款主键
+        public int RefundCause { get; set; }  //退款原因
+        public int RefundExplain { get; set; }  //退款说明
+        //public Guid Oid { get; set; }    订单外键
 
 
         //外键

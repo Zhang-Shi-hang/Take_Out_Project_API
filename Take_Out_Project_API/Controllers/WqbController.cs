@@ -60,5 +60,29 @@ namespace Take_Out_Project_API.Controllers
         {
             return bll.OrderInfo(uid, oid);
         }
+
+
+        /// <summary>
+        /// 退款表添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int Refund(ModelInfo m)
+        {
+            return bll.Refund(m);
+        }
+        /// <summary>
+        /// 评论添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int Comment(ModelInfo m)
+        {
+            return bll.Comment(m);
+        }
     }
 }

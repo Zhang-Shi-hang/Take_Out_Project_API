@@ -1,18 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Net;
+using System.Net.Http;
+using System.Web.Http;
 
-using DAL;
+using BLL;
 using Model;
 
-namespace BLL
+namespace Take_Out_Project_API.Controllers
 {
-    public class ZrwBll
+    public class ZrwController : ApiController
     {
-        //实例化DAL层
-        ZrwDal dal = new ZrwDal();
+
+        //实例化bll层
+        ZrwBll bll = new ZrwBll();
 
         /// <summary>
         /// 获取店铺详情信息
@@ -20,7 +22,7 @@ namespace BLL
         /// <returns></returns>
         public List<ModelInfo> GetShopTable()
         {
-            return dal.GetShopTable();
+            return bll.GetShopTable();
         }
 
         /// <summary>
@@ -30,7 +32,7 @@ namespace BLL
         /// <returns></returns>
         public List<ModelInfo> GetGreensInName(string Name)
         {
-            return dal.GetGreensInName(Name);
+            return bll.GetGreensInName(Name);
         }
 
         /// <summary>
@@ -39,7 +41,7 @@ namespace BLL
         /// <returns></returns>
         public List<ModelInfo> GetGreensType()
         {
-            return dal.GetGreensType();
+            return bll.GetGreensType();
         }
 
         /// <summary>
@@ -49,7 +51,7 @@ namespace BLL
         /// <returns></returns>
         public List<ModelInfo> GetGreensInType(string TypeName)
         {
-            return dal.GetGreensInName(TypeName);
+            return bll.GetGreensInName(TypeName);
         }
 
         /// <summary>
@@ -59,7 +61,7 @@ namespace BLL
         /// <returns></returns>
         public int InsertOrderTable(ModelInfo m)
         {
-            return dal.InsertOrderTable(m);
+            return bll.InsertOrderTable(m);
         }
 
         /// <summary>
@@ -69,7 +71,7 @@ namespace BLL
         /// <returns></returns>
         public int InsertDetailTable(IEnumerable<ModelInfo> Model)
         {
-            return dal.InsertDetailTable(Model);
+            return bll.InsertDetailTable(Model);
         }
 
         /// <summary>
@@ -79,7 +81,7 @@ namespace BLL
         /// <returns></returns>
         public List<ModelInfo> GetDetailInOen(int OenNum)
         {
-            return dal.GetDetailInOen(OenNum);
+            return bll.GetDetailInOen(OenNum);
         }
 
         /// <summary>
@@ -89,7 +91,7 @@ namespace BLL
         /// <returns></returns>
         public int UpdateOrder(ModelInfo m)
         {
-            return dal.UpdateOrder(m);
+            return bll.UpdateOrder(m);
         }
     }
 }

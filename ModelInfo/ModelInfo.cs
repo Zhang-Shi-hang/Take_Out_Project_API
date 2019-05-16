@@ -24,13 +24,9 @@ namespace Model
         /// 明细表
         /// </summary>
         public Guid DetailId { get; set; }//明细主键Id
-        public Guid Gid { get; set; }//菜品外键
-        public decimal Gprice { get; set; }//菜品价格
         public int Gnum { get; set; }//菜品数量
         public int Gsum { get; set; }//菜品总价
-        public Guid Oid { get; set; }//订单外键
         public decimal Gprice { get; set; }//菜品价格   --可用可不用
-        public int Gnum { get; set; }//菜品数量
         #endregion
 
         #region 菜品表
@@ -76,6 +72,7 @@ namespace Model
         public string OrderRemark { get; set; }//订单备注
         public decimal OrderPrice { get; set; }//订单价格
         public bool RepastWay { get; set; }//就餐方式
+        public decimal OrderSum { get; set; }//订单总价
         #endregion
 
         #region 店铺表
@@ -110,7 +107,7 @@ namespace Model
         public int UserIntegral { get; set; }//用户积分
         public int UserStatic { get; set; }//用户状态
 
-
+        #endregion
         #region 退单表
         /// <summary>
         /// 退单表

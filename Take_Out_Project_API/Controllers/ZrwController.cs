@@ -20,6 +20,8 @@ namespace Take_Out_Project_API.Controllers
         /// 获取店铺详情信息
         /// </summary>
         /// <returns></returns>
+        /// 
+        [HttpGet]
         public List<ModelInfo> GetShopTable()
         {
             return bll.GetShopTable();
@@ -28,11 +30,10 @@ namespace Take_Out_Project_API.Controllers
         /// <summary>
         /// 根据名称查询菜品信息
         /// </summary>
-        /// <param name="name">菜品名称</param>
         /// <returns></returns>
-        public List<ModelInfo> GetGreensInName(string Name)
+        public List<ModelInfo> GetGreens( )
         {
-            return bll.GetGreensInName(Name);
+            return bll.GetGreens();
         }
 
         /// <summary>
@@ -51,7 +52,7 @@ namespace Take_Out_Project_API.Controllers
         /// <returns></returns>
         public List<ModelInfo> GetGreensInType(string TypeName)
         {
-            return bll.GetGreensInName(TypeName);
+            return bll.GetGreensInType(TypeName);
         }
 
         /// <summary>

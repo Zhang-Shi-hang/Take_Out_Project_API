@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DBHelperList.cs" />
+    <Compile Include="MZGUserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ZrwDal.cs" />
   </ItemGroup>

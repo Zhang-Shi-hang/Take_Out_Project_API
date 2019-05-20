@@ -64,7 +64,7 @@ namespace DAL
         /// <returns></returns>
         public int InsertOrderTable(ModelInfo m)
         {
-            string sql = string.Format("insert into OrderTable values(newid(),'{0}','{1}','{2}',{3},GETDATE(),'{4}',{5})", m.Oen, m.Uid, m.Hid, m.OrderStatic, m.OrderRemark, m.RepastWay);
+            string sql = string.Format("insert into OrderTable values(newid(),'{0}','{1}','{2}',{3},GETDATE(),'{4}',{5},{6})", m.Oen, m.Uid, m.Hid, m.OrderStatic, m.OrderRemark, m.RepastWay,m.OrderSum);
             return db.ExecuteNonQuery(sql);
         }
 

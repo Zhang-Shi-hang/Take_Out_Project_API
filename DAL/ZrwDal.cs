@@ -20,17 +20,17 @@ namespace DAL
         public List<ModelInfo> GetShopTable()
         {
             string sql = "select * from ShopTable";
-            return db.GetToList<ModelInfo>(sql);
+            var list=db.GetToList<ModelInfo>(sql);
+            return list;
         }
 
         /// <summary>
         /// 根据名称查询菜品信息
         /// </summary>
-        /// <param name="name">菜品名称</param>
         /// <returns></returns>
-        public List<ModelInfo> GetGreensInName(string Name)
+        public List<ModelInfo> GetGreens()
         {
-            string sql = $"select * from GreensTable where GreensName like'%{Name}%' ";
+            string sql = $"select * from GreensTable  ";
             return db.GetToList<ModelInfo>(sql);
         }
 
@@ -41,7 +41,8 @@ namespace DAL
         public List<ModelInfo> GetGreensType()
         {
             string sql = "select distinct a.GreensType from GreensTable a";
-            return db.GetToList<ModelInfo>(sql);
+            var list= db.GetToList<ModelInfo>(sql);
+            return list;
         }
 
         /// <summary>
@@ -52,7 +53,8 @@ namespace DAL
         public List<ModelInfo> GetGreensInType(string TypeName)
         {
             string sql = $"select * from GreensTable where GreensType like'%{TypeName}%' ";
-            return db.GetToList<ModelInfo>(sql);
+            var list= db.GetToList<ModelInfo>(sql);
+            return list;
         }
 
         /// <summary>

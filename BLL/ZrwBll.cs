@@ -28,9 +28,9 @@ namespace BLL
         /// </summary>
         /// <param name="name">菜品名称</param>
         /// <returns></returns>
-        public List<ModelInfo> GetGreensInName(string Name)
+        public List<ModelInfo> GetGreens( )
         {
-            return dal.GetGreensInName(Name);
+            return dal.GetGreens();
         }
 
         /// <summary>
@@ -49,7 +49,7 @@ namespace BLL
         /// <returns></returns>
         public List<ModelInfo> GetGreensInType(string TypeName)
         {
-            return dal.GetGreensInName(TypeName);
+            return dal.GetGreensInType(TypeName);
         }
 
         /// <summary>

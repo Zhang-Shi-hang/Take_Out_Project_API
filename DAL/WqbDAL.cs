@@ -16,9 +16,7 @@ namespace DAL
         /// <returns></returns>
         public List<ModelInfo> OrderShow(Guid id)
         {
-            string sql = @"select * from OrderTable a join DetailTable b
-            on a.OrderId = b.Oid join UserInfo c on a.Uid = c.UserId
-            where a.Uid = '" + id + "'";
+            string sql = @"select * from OrderTable a join ShopTable b on a.Sid=b.ShopId where a.Uid = '" + id + "'";
             var list = db.GetToList<ModelInfo>(sql);
             return list;
         }

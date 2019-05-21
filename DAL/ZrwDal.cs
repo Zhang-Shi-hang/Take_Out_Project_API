@@ -13,6 +13,8 @@ namespace DAL
         //实例化DBHelper
         DBHelperList db = new DBHelperList();
 
+
+
         /// <summary>
         /// 获取店铺详情信息
         /// </summary>
@@ -91,9 +93,65 @@ namespace DAL
         /// <returns></returns>
         public List<ModelInfo> GetDetailInOen(int OenNum)
         {
-            string sql = "select * from OrderTable a inner join DetailTable b on a.OrderId=b.Oid where a.Oen=" + OenNum;
+            string sql = "select * from DetailTable a inner join OrderTable b on a.Oid=b.OrderId inner join GreensTable c on a.Gid=c.GreensId  where b.Oen='" + OenNum + "'";
+            var list= db.GetToList<ModelInfo>(sql);
+            return list;
+        }
+
+        //根据订单编号查询菜品数量
+        public int GetCount(int OenNum)
+        {
+            string sql = "select * from DetailTable a inner join OrderTable b on a.Oid=b.OrderId inner join GreensTable c on a.Gid=c.GreensId  where b.Oen='" + OenNum + "'";
+            var list = db.GetToList<ModelInfo>(sql);
+            return list.Count;
+        }
+
+
+        /// <summary>
+        /// 修改订单详细情况
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int UpdateOrderInSay(ModelInfo m)
+        {
+            string sql = string.Format("update OrderTable set RepastWay='{0}',OrderRemark='{1}',OrderPrice='{2}', where Oen='{3}'", m.RepastWay, m.OrderRemark,m.OrderPrice, m.Oen);
+            return db.ExecuteNonQuery(sql);
+        }
+
+        /// <summary>
+        /// 根据用户Id查询优惠券信息
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public List<ModelInfo> GetDiscountsTable(string Uid)
+        {
+            string sql = "select * from DiscountsTable  where Uid='" + Uid + "'and DiscountStatic=1 ";
             return db.GetToList<ModelInfo>(sql);
         }
+
+        /// <summary>
+        /// 根据用户Id更改优惠券状态
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public int UpdateDiscounts(string Uid)
+        {
+            string sql = "update DiscountsTable set DiscountStatic=0 where Uid='" + Uid + "'";
+            return db.ExecuteNonQuery(sql);
+        }
+
+
+        /// <summary>
+        /// 查询订单信息
+        /// </summary>
+        /// <param name="Oen"></param>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrder(string Oen)
+        {
+            string sql = "select * from OrderTable where Oen='" + Oen + "'";
+            return db.GetToList<ModelInfo>(sql);
+        }
+
 
         /// <summary>
         /// 结算完成后修改订单状态

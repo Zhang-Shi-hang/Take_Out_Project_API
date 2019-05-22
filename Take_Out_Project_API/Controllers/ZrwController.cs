@@ -7,6 +7,7 @@ using System.Web.Http;
 
 using BLL;
 using Model;
+using Newtonsoft.Json;
 
 namespace Take_Out_Project_API.Controllers
 {
@@ -60,8 +61,9 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="m">信息集</param>
         /// <returns></returns>
-        public int InsertOrderTable(ModelInfo m)
+        public int InsertOrderTable(string str)
         {
+            var m= JsonConvert.DeserializeObject<ModelInfo>(str);
             return bll.InsertOrderTable(m);
         }
 
@@ -83,6 +85,52 @@ namespace Take_Out_Project_API.Controllers
         public List<ModelInfo> GetDetailInOen(int OenNum)
         {
             return bll.GetDetailInOen(OenNum);
+        }
+        //根据订单编号查询菜品数量
+        public int GetCount(int OenNum)
+        {
+            return bll.GetCount(OenNum);
+        }
+
+        /// <summary>
+        /// 修改订单备注和就餐方式
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int UpdateOrderInSay(string str)
+        {
+            var m = JsonConvert.DeserializeObject<ModelInfo>(str);
+            return bll.UpdateOrderInSay(m);
+        }
+
+        /// <summary>
+        /// 根据用户Id查询优惠券信息
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public List<ModelInfo> GetDiscountsTable(string Uid)
+        {
+            return bll.GetDiscountsTable(Uid);
+        }
+
+        /// <summary>
+        /// 根据用户Id更改优惠券状态
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public int UpdateDiscounts(string Uid)
+        {
+            return bll.UpdateDiscounts(Uid);
+        }
+
+        /// <summary>
+        /// 查询订单信息
+        /// </summary>
+        /// <param name="Oen"></param>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrder(string Oen)
+        {
+            return bll.GetOrder(Oen);
         }
 
         /// <summary>

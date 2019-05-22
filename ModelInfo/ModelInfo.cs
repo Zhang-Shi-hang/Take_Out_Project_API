@@ -132,5 +132,7 @@ namespace Model
         public Guid Hid { get; set; }//骑士外键          订单表 
         public Guid Gid { get; set; }//菜品外键          明细表 
         public Guid Oid { get; set; }//订单外键          退款表 明细表
+        
+
     }
 }

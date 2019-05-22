@@ -87,6 +87,53 @@ namespace BLL
         {
             return dal.GetDetailInOen(OenNum);
         }
+        //根据订单编号查询菜品数量
+        public int GetCount(int OenNum)
+        {
+            return dal.GetCount(OenNum);
+        }
+
+        /// <summary>
+        /// 根据用户Id查询优惠券信息
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public List<ModelInfo> GetDiscountsTable(string Uid)
+        {
+            return dal.GetDiscountsTable(Uid);
+        }
+
+        /// <summary>
+        /// 根据用户Id更改优惠券状态
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public int UpdateDiscounts(string Uid)
+        {
+            return dal.UpdateDiscounts(Uid);
+        }
+
+        /// <summary>
+        /// 查询订单信息
+        /// </summary>
+        /// <param name="Oen"></param>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrder(string Oen)
+        {
+            return dal.GetOrder(Oen);
+        }
+
+        /// <summary>
+        /// 修改订单备注和就餐方式
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int UpdateOrderInSay(ModelInfo m)
+        {
+            return dal.UpdateOrderInSay(m);
+        }
+
+
 
         /// <summary>
         /// 结算完成后修改订单状态

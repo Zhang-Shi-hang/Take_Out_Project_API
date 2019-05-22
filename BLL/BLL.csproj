@@ -61,6 +61,7 @@
       <Project>{90f2133b-813c-42fd-90f7-5f0f9c1dbda9}</Project>
       <Name>Model</Name>
     </ProjectReference>
+    <Compile Include="ZQBLL.cs" />
     <Compile Include="ZrwBll.cs" />
   </ItemGroup>
   <ItemGroup>

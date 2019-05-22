@@ -82,6 +82,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ZQApiController.cs" />
     <Compile Include="Controllers\MZGUserController.cs" />
     <Compile Include="Controllers\ZrwController.cs" />
     <Compile Include="Controllers\WqbController.cs" />

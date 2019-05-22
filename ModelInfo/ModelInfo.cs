@@ -25,7 +25,6 @@ namespace Model
         /// </summary>
         public Guid DetailId { get; set; }//明细主键Id
         public int Gnum { get; set; }//菜品数量
-        public int Gsum { get; set; }//菜品总价
         public decimal Gprice { get; set; }//菜品价格   --可用可不用
         #endregion
 
@@ -66,7 +65,7 @@ namespace Model
         /// 订单表
         /// </summary>
         public Guid OrderId { get; set; }//订单主键Id
-        public int Oen { get; set; }//订单编号
+        public string Oen { get; set; }//订单编号
         public int OrderStatic { get; set; }//订单状态
         public DateTime OrderTime { get; set; }//订单时间
         public string OrderRemark { get; set; }//订单备注

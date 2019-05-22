@@ -15,7 +15,6 @@ namespace Take_Out_Project_API.Controllers
 
         //实例化bll层
         ZrwBll bll = new ZrwBll();
-
         /// <summary>
         /// 获取店铺详情信息
         /// </summary>
@@ -60,11 +59,19 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="m">信息集</param>
         /// <returns></returns>
-        public int InsertOrderTable(ModelInfo m)
+        [HttpPost]
+        public int InsertOrderTable([FromBody] ModelInfo m)
         {
             return bll.InsertOrderTable(m);
         }
-
+        /// <summary>
+        /// 查询最新一条订单
+        /// </summary>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrderFirst()
+        {
+            return bll.GetOrderFirst();
+        }
         /// <summary>
         /// 生成明细表数据
         /// </summary>

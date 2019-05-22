@@ -13,7 +13,6 @@ namespace BLL
     {
         //实例化DAL层
         ZrwDal dal = new ZrwDal();
-
         /// <summary>
         /// 获取店铺详情信息
         /// </summary>
@@ -61,7 +60,14 @@ namespace BLL
         {
             return dal.InsertOrderTable(m);
         }
-
+        /// <summary>
+        /// 查询最新一条订单
+        /// </summary>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrderFirst()
+        {
+            return dal.GetOrderFirst();
+        }
         /// <summary>
         /// 生成明细表数据
         /// </summary>

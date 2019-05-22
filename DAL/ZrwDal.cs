@@ -12,7 +12,6 @@ namespace DAL
     {
         //实例化DBHelper
         DBHelperList db = new DBHelperList();
-
         /// <summary>
         /// 获取店铺详情信息
         /// </summary>
@@ -64,10 +63,18 @@ namespace DAL
         /// <returns></returns>
         public int InsertOrderTable(ModelInfo m)
         {
-            string sql = string.Format("insert into OrderTable values(newid(),'{0}','{1}','{2}',{3},GETDATE(),'{4}',{5},{6})", m.Oen, m.Uid, m.Hid, m.OrderStatic, m.OrderRemark, m.RepastWay,m.OrderSum);
+            string sql = string.Format("insert into OrderTable values(newid(),'{0}','{1}','{2}',{3},'{4}',GETDATE(),'{5}',{6},{7})", m.Oen, m.Uid, m.Hid, m.OrderStatic,m.Sid, m.OrderRemark, m.RepastWay?1:0,m.OrderSum);
             return db.ExecuteNonQuery(sql);
         }
-
+        /// <summary>
+        /// 查询最新一条订单
+        /// </summary>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrderFirst()
+        {
+            string sql = "select top 1 * from OrderTable order by OrderId desc";
+            return db.GetToList<ModelInfo>(sql);
+        }
         /// <summary>
         /// 生成明细表数据
         /// </summary>
@@ -78,8 +85,8 @@ namespace DAL
             var i = 0;
             foreach (var m in Model)
             {
-                string sql = string.Format("insert into DetailTable values(NEWID(),'{0}',{1},{2},{3},'{4}')", m.Gid, m.Gprice, m.Gnum, m.Gsum, m.Oid);
-                i += db.ExecuteNonQuery(sql);
+                string sql = string.Format("insert into DetailTable values(NEWID(),'{0}',{1},{2},'{3}')", m.Gid, m.Gprice, m.Gnum,m.Oid);
+                 i = db.ExecuteTrasaction(sql);
             }
             return i;
         }

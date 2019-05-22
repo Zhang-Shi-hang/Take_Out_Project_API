@@ -154,6 +154,38 @@ namespace DAL
             }
             return result;
         }
+        public int ExecuteTrasaction(string sqlStr)
+        {
+            //实例化连接对象
+            conn = new SqlConnection(strConn);
+            conn.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = conn;
+            SqlTransaction tran = conn.BeginTransaction();
+            cmd.Transaction = tran;
+            int i = 0;
+            try
+            {
+                cmd.CommandText = sqlStr;
+                i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    tran.Commit();
+                    return i;
+                }
+                else
+                {
+                    i = 0;
+                    tran.Rollback();
+                }
+            }
+            catch
+            {
+                i = 0;
+                tran.Rollback();
+            }
+            return i;
+        }
         /// <summary>
         /// 打开数据库链接
         /// </summary>

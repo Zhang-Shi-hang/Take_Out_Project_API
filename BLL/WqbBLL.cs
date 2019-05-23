@@ -41,16 +41,6 @@ namespace BLL
         }
 
 
-        /// <summary>
-        /// 订单详情
-        /// </summary>
-        /// <param name="uid">用户ID</param>
-        /// <param name="oid">订单ID</param>
-        /// <returns></returns>
-        public List<ModelInfo> OrderInfo(Guid uid, Guid oid)
-        {
-            return dal.OrderInfo(uid, oid);
-        }
 
         /// <summary>
         /// 退款表添加
@@ -69,6 +59,25 @@ namespace BLL
         public int Comment(ModelInfo m)
         {
             return dal.Comment(m);
+        }
+
+        /// <summary>
+        /// 订单详情    
+        /// </summary>
+        /// <param name="UserId">用户主键参数</param>
+        /// <returns></returns>
+        public List<ModelInfo> OrderParticulars(Guid UserId)
+        {
+            return dal.OrderParticulars(UserId);
+        }
+        /// <summary>
+        /// 菜单详情中的菜品
+        /// </summary>
+        /// <param name="OrderId">订单主键参数</param>
+        /// <returns></returns>
+        public List<ModelInfo> ShowMenu(Guid OrderId)
+        {
+            return dal.OrderParticulars(OrderId);
         }
     }
 }

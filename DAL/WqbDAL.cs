@@ -16,9 +16,7 @@ namespace DAL
         /// <returns></returns>
         public List<ModelInfo> OrderShow(Guid id)
         {
-            string sql = @"select * from OrderTable a join DetailTable b
-            on a.OrderId = b.Oid join UserInfo c on a.Uid = c.UserId
-            where a.Uid = '" + id + "'";
+            string sql = @"select * from OrderTable where Uid= '" + id + "'";
             var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
@@ -48,20 +46,6 @@ namespace DAL
         }
 
 
-        /// <summary>
-        /// 订单详情
-        /// </summary>
-        /// <param name="uid">用户ID</param>
-        /// <param name="oid">订单ID</param>
-        /// <returns></returns>
-        public List<ModelInfo> OrderInfo(Guid uid, Guid oid)
-        {
-            string sql = string.Format(@"select * from OrderTable a join DetailTable b
-	        on a.OrderId=b.Oid join UserInfo c on a.Uid=c.UserId
-	        where a.Uid={0} and a.OrderId={1}", uid, oid);
-            var list = db.GetToList<ModelInfo>(sql);
-            return list;
-        }
 
         /// <summary>
         /// 退款表添加
@@ -84,6 +68,29 @@ namespace DAL
             string sql = string.Format("insert into CommentTable values('{0}','{1}','{2}','{3}','{4}')", m.CommentContent, m.CommentTime, m.Uid, m.Sid, m.CommentScore);
             var dt = db.ExecuteNonQuery(sql);
             return dt;
+        }
+
+        /// <summary>
+        /// 订单详情    
+        /// </summary>
+        /// <param name="UserId">用户主键参数</param>
+        /// <returns></returns>
+        public List<ModelInfo> OrderParticulars(Guid UserId)
+        {
+            string sql = $"select * from OrderTable where Uid='{UserId}'";
+            var list = db.GetToList<ModelInfo>(sql);
+            return list;
+        }
+        /// <summary>
+        /// 菜单详情中的菜品
+        /// </summary>
+        /// <param name="OrderId">订单主键参数</param>
+        /// <returns></returns>
+        public List<ModelInfo> ShowMenu(Guid OrderId)
+        {
+            string sql = $"select * from GreensTable a join DetailTable b on a.GreensId=b.Gid where Oid='{OrderId}'";
+            var list = db.GetToList<ModelInfo>(sql);
+            return list;
         }
     }
 }

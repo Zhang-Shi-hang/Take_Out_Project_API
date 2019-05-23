@@ -13,7 +13,6 @@ namespace BLL
     {
         //实例化DAL层
         ZrwDal dal = new ZrwDal();
-
         /// <summary>
         /// 获取店铺详情信息
         /// </summary>
@@ -28,9 +27,9 @@ namespace BLL
         /// </summary>
         /// <param name="name">菜品名称</param>
         /// <returns></returns>
-        public List<ModelInfo> GetGreensInName(string Name)
+        public List<ModelInfo> GetGreens( )
         {
-            return dal.GetGreensInName(Name);
+            return dal.GetGreens();
         }
 
         /// <summary>
@@ -49,7 +48,7 @@ namespace BLL
         /// <returns></returns>
         public List<ModelInfo> GetGreensInType(string TypeName)
         {
-            return dal.GetGreensInName(TypeName);
+            return dal.GetGreensInType(TypeName);
         }
 
         /// <summary>
@@ -61,7 +60,14 @@ namespace BLL
         {
             return dal.InsertOrderTable(m);
         }
-
+        /// <summary>
+        /// 查询最新一条订单
+        /// </summary>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrderFirst()
+        {
+            return dal.GetOrderFirst();
+        }
         /// <summary>
         /// 生成明细表数据
         /// </summary>
@@ -77,19 +83,66 @@ namespace BLL
         /// </summary>
         /// <param name="OenNum">订单编号</param>
         /// <returns></returns>
-        public List<ModelInfo> GetDetailInOen(int OenNum)
+        public List<ModelInfo> GetDetailInOen(string OenNum)
         {
             return dal.GetDetailInOen(OenNum);
         }
+        //根据订单编号查询菜品数量
+        public int GetCount(string OenNum)
+        {
+            return dal.GetCount(OenNum);
+        }
+
+        /// <summary>
+        /// 根据用户Id查询优惠券信息
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public List<ModelInfo> GetDiscountsTable(string Uid)
+        {
+            return dal.GetDiscountsTable(Uid);
+        }
+
+        /// <summary>
+        /// 根据用户Id更改优惠券状态
+        /// </summary>
+        /// <param name="Uid">用户ID</param>
+        /// <returns></returns>
+        public int UpdateDiscounts(string Uid,string DiscountsId)
+        {
+            return dal.UpdateDiscounts(Uid, DiscountsId);
+        }
+
+        /// <summary>
+        /// 查询订单信息
+        /// </summary>
+        /// <param name="Oen"></param>
+        /// <returns></returns>
+        public List<ModelInfo> GetOrder(string Oen)
+        {
+            return dal.GetOrder(Oen);
+        }
+
+        /// <summary>
+        /// 修改订单备注和就餐方式
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int UpdateOrderInSay(ModelInfo m)
+        {
+            return dal.UpdateOrderInSay(m);
+        }
+
+
 
         /// <summary>
         /// 结算完成后修改订单状态
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int UpdateOrder(ModelInfo m)
+        public int UpdateOrder(string Oen)
         {
-            return dal.UpdateOrder(m);
+            return dal.UpdateOrder(Oen);
         }
     }
 }

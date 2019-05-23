@@ -49,28 +49,24 @@ namespace Take_Out_Project_API.Controllers
         }
         
         /// <summary>
-        /// 退款表添加
+        /// 订单详情    
         /// </summary>
-        /// <param name="m"></param>
+        /// <param name="UserId">用户主键参数</param>
         /// <returns></returns>
-        /// 
         [HttpGet]
-        public int Refund(string str)
+        public List<ModelInfo> OrderParticulars(Guid UserId)
         {
-            var m = JsonConvert.DeserializeObject<ModelInfo>(str);
-            return bll.Refund(m);
+            return bll.OrderParticulars(UserId);
         }
         /// <summary>
-        /// 评论添加
+        /// 菜单详情中的菜品
         /// </summary>
-        /// <param name="m"></param>
+        /// <param name="OrderId">订单主键参数</param>
         /// <returns></returns>
-        /// 
         [HttpGet]
-        public int Comment(string str)
+        public List<ModelInfo> ShowMenu(Guid OrderId)
         {
-            var m = JsonConvert.DeserializeObject<ModelInfo>(str);
-            return bll.Comment(m);
+            return bll.ShowMenu(OrderId);
         }
 
         /// <summary>

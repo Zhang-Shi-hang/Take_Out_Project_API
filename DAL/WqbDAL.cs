@@ -16,7 +16,7 @@ namespace DAL
         /// <returns></returns>
         public List<ModelInfo> OrderShow(Guid id)
         {
-            string sql = @"select * from OrderTable where Uid= '" + id + "'";
+            string sql = @"select * from OrderTable a join ShopTable b on a.Sid=b.ShopId where a.Uid = '" + id + "'";
             var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
@@ -46,6 +46,28 @@ namespace DAL
         }
 
 
+        /// <summary>
+        /// 订单详情    
+        /// </summary>
+        /// <param name="UserId">用户主键参数</param>
+        /// <returns></returns>
+        public List<ModelInfo> OrderParticulars(Guid UserId)
+        {
+            string sql = $"select * from OrderTable where Uid='{UserId}'";
+            var list = db.GetToList<ModelInfo>(sql);
+            return list;
+        }
+        /// <summary>
+        /// 菜单详情中的菜品
+        /// </summary>
+        /// <param name="OrderId">订单主键参数</param>
+        /// <returns></returns>
+        public List<ModelInfo> ShowMenu(Guid OrderId)
+        {
+            string sql = $"select * from GreensTable a join DetailTable b on a.GreensId=b.Gid where Oid='{OrderId}'";
+            var list = db.GetToList<ModelInfo>(sql);
+            return list;
+        }
 
         /// <summary>
         /// 退款表添加

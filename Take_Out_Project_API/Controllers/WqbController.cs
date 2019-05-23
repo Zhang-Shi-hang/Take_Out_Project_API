@@ -49,16 +49,24 @@ namespace Take_Out_Project_API.Controllers
 
 
         /// <summary>
-        /// 订单详情
+        /// 订单详情    
         /// </summary>
-        /// <param name="uid">用户ID</param>
-        /// <param name="oid">订单ID</param>
+        /// <param name="UserId">用户主键参数</param>
         /// <returns></returns>
-        /// 
         [HttpGet]
-        public List<ModelInfo> OrderInfo(Guid uid, Guid oid)
+        public List<ModelInfo> OrderParticulars(Guid UserId)
         {
-            return bll.OrderInfo(uid, oid);
+            return bll.OrderParticulars(UserId);
+        }
+        /// <summary>
+        /// 菜单详情中的菜品
+        /// </summary>
+        /// <param name="OrderId">订单主键参数</param>
+        /// <returns></returns>
+        [HttpGet]
+        public List<ModelInfo> ShowMenu(Guid OrderId)
+        {
+            return bll.ShowMenu(OrderId);
         }
 
 

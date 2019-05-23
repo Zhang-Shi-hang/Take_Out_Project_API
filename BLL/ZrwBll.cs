@@ -83,12 +83,12 @@ namespace BLL
         /// </summary>
         /// <param name="OenNum">订单编号</param>
         /// <returns></returns>
-        public List<ModelInfo> GetDetailInOen(int OenNum)
+        public List<ModelInfo> GetDetailInOen(string OenNum)
         {
             return dal.GetDetailInOen(OenNum);
         }
         //根据订单编号查询菜品数量
-        public int GetCount(int OenNum)
+        public int GetCount(string OenNum)
         {
             return dal.GetCount(OenNum);
         }
@@ -108,9 +108,9 @@ namespace BLL
         /// </summary>
         /// <param name="Uid">用户ID</param>
         /// <returns></returns>
-        public int UpdateDiscounts(string Uid)
+        public int UpdateDiscounts(string Uid,string DiscountsId)
         {
-            return dal.UpdateDiscounts(Uid);
+            return dal.UpdateDiscounts(Uid, DiscountsId);
         }
 
         /// <summary>
@@ -140,9 +140,9 @@ namespace BLL
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int UpdateOrder(ModelInfo m)
+        public int UpdateOrder(string Oen)
         {
-            return dal.UpdateOrder(m);
+            return dal.UpdateOrder(Oen);
         }
     }
 }

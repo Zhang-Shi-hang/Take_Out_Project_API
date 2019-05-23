@@ -31,6 +31,7 @@ namespace Take_Out_Project_API.Controllers
         /// 根据名称查询菜品信息
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public List<ModelInfo> GetGreens( )
         {
             return bll.GetGreens();
@@ -40,6 +41,7 @@ namespace Take_Out_Project_API.Controllers
         /// 查询菜品类型
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public List<ModelInfo> GetGreensType()
         {
             return bll.GetGreensType();
@@ -50,11 +52,11 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="TypeName">分类名称</param>
         /// <returns></returns>
+        [HttpGet]
         public List<ModelInfo> GetGreensInType(string TypeName)
         {
             return bll.GetGreensInType(TypeName);
         }
-
         /// <summary>
         /// 生成一条订单
         /// </summary>
@@ -69,6 +71,7 @@ namespace Take_Out_Project_API.Controllers
         /// 查询最新一条订单
         /// </summary>
         /// <returns></returns>
+        [HttpGet]
         public List<ModelInfo> GetOrderFirst()
         {
             return bll.GetOrderFirst();
@@ -78,6 +81,7 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
+        [HttpPost]
         public int InsertDetailTable(IEnumerable<ModelInfo> Model)
         {
             return bll.InsertDetailTable(Model);
@@ -88,12 +92,15 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="OenNum">订单编号</param>
         /// <returns></returns>
-        public List<ModelInfo> GetDetailInOen(int OenNum)
+        
+        [HttpGet]
+        public List<ModelInfo> GetDetailInOen(string OenNum)
         {
             return bll.GetDetailInOen(OenNum);
         }
         //根据订单编号查询菜品数量
-        public int GetCount(int OenNum)
+        [HttpGet]
+        public int GetCount(string OenNum)
         {
             return bll.GetCount(OenNum);
         }
@@ -103,6 +110,7 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
+        [HttpGet]
         public int UpdateOrderInSay(string str)
         {
             var m = JsonConvert.DeserializeObject<ModelInfo>(str);
@@ -114,9 +122,11 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="Uid">用户ID</param>
         /// <returns></returns>
+        [HttpGet]
         public List<ModelInfo> GetDiscountsTable(string Uid)
         {
-            return bll.GetDiscountsTable(Uid);
+            var list= bll.GetDiscountsTable(Uid);
+            return list;
         }
 
         /// <summary>
@@ -124,9 +134,10 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="Uid">用户ID</param>
         /// <returns></returns>
-        public int UpdateDiscounts(string Uid)
+        [HttpGet]
+        public int UpdateDiscounts(string Uid,string DiscountsId)
         {
-            return bll.UpdateDiscounts(Uid);
+            return bll.UpdateDiscounts(Uid, DiscountsId);
         }
 
         /// <summary>
@@ -134,6 +145,7 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="Oen"></param>
         /// <returns></returns>
+        [HttpGet]
         public List<ModelInfo> GetOrder(string Oen)
         {
             return bll.GetOrder(Oen);
@@ -144,9 +156,10 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int UpdateOrder(ModelInfo m)
+        [HttpGet]
+        public int UpdateOrder(string Oen)
         {
-            return bll.UpdateOrder(m);
+            return bll.UpdateOrder(Oen);
         }
     }
 }

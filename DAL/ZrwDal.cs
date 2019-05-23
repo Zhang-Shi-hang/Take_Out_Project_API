@@ -22,7 +22,7 @@ namespace DAL
         public List<ModelInfo> GetShopTable()
         {
             string sql = "select * from ShopTable";
-            var list=db.GetToList<ModelInfo>(sql);
+            var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
 
@@ -43,7 +43,7 @@ namespace DAL
         public List<ModelInfo> GetGreensType()
         {
             string sql = "select distinct a.GreensType from GreensTable a";
-            var list= db.GetToList<ModelInfo>(sql);
+            var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
 
@@ -55,7 +55,7 @@ namespace DAL
         public List<ModelInfo> GetGreensInType(string TypeName)
         {
             string sql = $"select * from GreensTable where GreensType like'%{TypeName}%' ";
-            var list= db.GetToList<ModelInfo>(sql);
+            var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
 
@@ -66,7 +66,7 @@ namespace DAL
         /// <returns></returns>
         public int InsertOrderTable(ModelInfo m)
         {
-            string sql = string.Format("insert into OrderTable values(newid(),'{0}','{1}','{2}',{3},'{4}',GETDATE(),'{5}',{6},{7})", m.Oen, m.Uid, m.Hid, m.OrderStatic,m.Sid, m.OrderRemark, m.RepastWay?1:0,m.OrderSum);
+            string sql = string.Format("insert into OrderTable values(newid(),'{0}','{1}','{2}',{3},'{4}',GETDATE(),'{5}',{6},{7})", m.Oen, m.Uid, m.Hid, m.OrderStatic, m.Sid, m.OrderRemark, m.RepastWay ? 1 : 0, m.OrderSum);
             return db.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -75,7 +75,7 @@ namespace DAL
         /// <returns></returns>
         public List<ModelInfo> GetOrderFirst()
         {
-            string sql = "select top 1 * from OrderTable order by OrderId desc";
+            string sql = "select top 1 * from OrderTable order by Oen desc";
             return db.GetToList<ModelInfo>(sql);
         }
         /// <summary>
@@ -88,8 +88,8 @@ namespace DAL
             var i = 0;
             foreach (var m in Model)
             {
-                string sql = string.Format("insert into DetailTable values(NEWID(),'{0}',{1},{2},'{3}')", m.Gid, m.Gprice, m.Gnum,m.Oid);
-                 i = db.ExecuteTrasaction(sql);
+                string sql = string.Format("insert into DetailTable values(NEWID(),'{0}',{1},{2},'{3}')", m.Gid, m.Gprice, m.Gnum, m.Oid);
+                i = db.ExecuteTrasaction(sql);
             }
             return i;
         }
@@ -99,15 +99,15 @@ namespace DAL
         /// </summary>
         /// <param name="OenNum">订单编号</param>
         /// <returns></returns>
-        public List<ModelInfo> GetDetailInOen(int OenNum)
+        public List<ModelInfo> GetDetailInOen(string OenNum)
         {
             string sql = "select * from DetailTable a inner join OrderTable b on a.Oid=b.OrderId inner join GreensTable c on a.Gid=c.GreensId  where b.Oen='" + OenNum + "'";
-            var list= db.GetToList<ModelInfo>(sql);
+            var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
 
         //根据订单编号查询菜品数量
-        public int GetCount(int OenNum)
+        public int GetCount(string OenNum)
         {
             string sql = "select * from DetailTable a inner join OrderTable b on a.Oid=b.OrderId inner join GreensTable c on a.Gid=c.GreensId  where b.Oen='" + OenNum + "'";
             var list = db.GetToList<ModelInfo>(sql);
@@ -122,7 +122,7 @@ namespace DAL
         /// <returns></returns>
         public int UpdateOrderInSay(ModelInfo m)
         {
-            string sql = string.Format("update OrderTable set RepastWay='{0}',OrderRemark='{1}',OrderPrice='{2}', where Oen='{3}'", m.RepastWay, m.OrderRemark,m.OrderPrice, m.Oen);
+            string sql = string.Format("update OrderTable set RepastWay='{0}',OrderRemark='{1}',OrderPrice='{2}' where Oen='{3}'", m.RepastWay ? 0 : 1, m.OrderRemark, m.OrderPrice, m.Oen);
             return db.ExecuteNonQuery(sql);
         }
 
@@ -142,9 +142,18 @@ namespace DAL
         /// </summary>
         /// <param name="Uid">用户ID</param>
         /// <returns></returns>
-        public int UpdateDiscounts(string Uid)
+        public int UpdateDiscounts(string Uid, string DiscountsId)
         {
-            string sql = "update DiscountsTable set DiscountStatic=0 where Uid='" + Uid + "'";
+            string sql = "";
+            if (DiscountsId == ""||DiscountsId==null)
+            {
+                sql = "update DiscountsTable set DiscountStatic=0 where Uid='" + Uid + "'";
+            }
+            else
+            {
+                sql = "update DiscountsTable set DiscountStatic=0 where Uid='" + Uid + "' and DiscountsId='" + DiscountsId + "'";
+
+            }
             return db.ExecuteNonQuery(sql);
         }
 
@@ -166,9 +175,9 @@ namespace DAL
         /// </summary>
         /// <param name="m"></param>
         /// <returns></returns>
-        public int UpdateOrder(ModelInfo m)
+        public int UpdateOrder(string Oen)
         {
-            string sql = $"update OrderTable set OrderStatic='{m.OrderStatic}' where Oen='{m.Oen}'";
+            string sql = $"update OrderTable set OrderStatic=1 where Oen='{Oen}'";
             return db.ExecuteNonQuery(sql);
         }
     }

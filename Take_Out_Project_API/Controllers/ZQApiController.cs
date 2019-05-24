@@ -57,5 +57,25 @@ namespace Take_Out_Project_API.Controllers
             
             return zb.UptYH(id);
         }
+        /// <summary>
+        /// 未付款订单
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public List<ModelInfo> Wei(Guid UserId)
+        {
+            return zb.Wei(UserId);
+        }
+        /// <summary>
+        /// 历史订单
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        [HttpGet]
+        public List<ModelInfo> Lishi(Guid UserId)
+        {
+            return zb.Lishi(UserId);
+        }
     }
 }

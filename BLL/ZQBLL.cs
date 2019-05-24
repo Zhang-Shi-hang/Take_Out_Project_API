@@ -50,5 +50,23 @@ namespace BLL
             
             return zd.UptYH(id);
         }
+        /// <summary>
+        /// 未付款订单
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public List<ModelInfo> Wei(Guid UserId)
+        {
+            return zd.Wei(UserId);
+        }
+        /// <summary>
+        /// 历史订单
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public List<ModelInfo> Lishi(Guid UserId)
+        {
+            return zd.Lishi(UserId);
+        }
     }
 }

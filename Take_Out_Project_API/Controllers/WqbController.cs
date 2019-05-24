@@ -47,11 +47,11 @@ namespace Take_Out_Project_API.Controllers
         {
             return bll.FtOrder(id);
         }
-        
+
         /// <summary>
         /// 订单详情    
         /// </summary>
-        /// <param name="UserId">用户主键参数</param>
+        /// <param name="OrderId">订单主键参数</param>
         /// <returns></returns>
         [HttpGet]
         public List<ModelInfo> OrderParticulars(Guid OrderId)

@@ -53,6 +53,26 @@ namespace DAL
             int i = db.ExecuteNonQuery(sql);
             return i;
         }
-       
+        /// <summary>
+        /// 未付款订单
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public List<ModelInfo> Wei(Guid UserId)
+        {
+            string sql = "select * from OrderTable where OrderStatic=0 and Uid='"+UserId+"'";
+            return db.GetToList<ModelInfo>(sql);
+        }
+        /// <summary>
+        /// 历史订单
+        /// </summary>
+        /// <param name="UserId"></param>
+        /// <returns></returns>
+        public List<ModelInfo> Lishi(Guid UserId)
+        {
+            string sql = "select * from OrderTable where OrderStatic=3 or OrderStatic>4 and Uid='" + UserId+"'";
+            return db.GetToList<ModelInfo>(sql);
+        }
+
     }
 }

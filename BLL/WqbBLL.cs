@@ -44,7 +44,7 @@ namespace BLL
         /// <summary>
         /// 订单详情    
         /// </summary>
-        /// <param name="UserId">用户主键参数</param>
+        /// <param name="OrderId">用户主键参数</param>
         /// <returns></returns>
         public List<ModelInfo> OrderParticulars(Guid OrderId)
         {

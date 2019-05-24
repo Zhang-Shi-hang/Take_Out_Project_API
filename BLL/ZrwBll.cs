@@ -144,5 +144,14 @@ namespace BLL
         {
             return dal.UpdateOrder(Oen);
         }
+        /// <summary>
+        /// 查看用户是否填写个人资料
+        /// </summary>
+        /// <param name="Uid"></param>
+        /// <returns></returns>
+        public bool SearchAddress(string Uid)
+        {
+            return dal.SearchAddress(Uid);
+        }
     }
 }

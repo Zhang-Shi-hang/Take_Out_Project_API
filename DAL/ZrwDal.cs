@@ -180,5 +180,23 @@ namespace DAL
             string sql = $"update OrderTable set OrderStatic=1 where Oen='{Oen}'";
             return db.ExecuteNonQuery(sql);
         }
+        /// <summary>
+        /// 查看用户是否填写个人资料
+        /// </summary>
+        /// <param name="Uid"></param>
+        /// <returns></returns>
+        public bool SearchAddress(string Uid)
+        {
+            string sql = $"select * from UserInfo where UserId='{Uid}'";
+            var m = db.GetToList<ModelInfo>(sql).FirstOrDefault();
+            if (m.UserAddress == ""||m.UserAddress==null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

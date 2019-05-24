@@ -30,10 +30,10 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<ModelInfo> Show(string phone)
+        public List<ModelInfo> Show(string userid)
         {
 
-            return zb.Show(phone);
+            return zb.Show(userid);
         }
         /// <summary>
         /// 优惠表显示

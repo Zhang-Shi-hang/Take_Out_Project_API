@@ -41,14 +41,14 @@ namespace BLL
             return zd.ShowYH(id);
         }
         /// <summary>
-        /// 修改地址
+        /// 修改优惠劵状态
         /// </summary>
         /// <param name="mi"></param>
         /// <returns></returns>
-        public int UptDZ(ModelInfo mi)
+        public int UptYH(string id)
         {
-
-            return zd.UptDZ(mi);
+            
+            return zd.UptYH(id);
         }
     }
 }

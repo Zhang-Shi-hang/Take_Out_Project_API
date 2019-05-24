@@ -25,10 +25,10 @@ namespace BLL
         /// 获取用户个人信息
         /// </summary>
         /// <returns></returns>
-        public List<ModelInfo> Show(string phone)
+        public List<ModelInfo> Show(string userid)
         {
            
-            return zd.Show(phone);
+            return zd.Show(userid);
         }
         /// <summary>
         /// 优惠表显示

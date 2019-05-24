@@ -25,9 +25,9 @@ namespace DAL
         /// 获取用户个人信息
         /// </summary>
         /// <returns></returns>
-        public List<ModelInfo> Show(string phone)
+        public List<ModelInfo> Show(string userid)
         {
-            string sql = "select * from UserInfo where UserPhone='"+phone+"'";
+            string sql = "select * from UserInfo where UserId='"+ userid + "'";
             var list = db.GetToList<ModelInfo>(sql);
             return list;
         }

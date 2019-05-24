@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Model;
 using BLL;
+using Newtonsoft.Json;
 namespace Take_Out_Project_API.Controllers
 {
     public class WqbController : ApiController
@@ -16,7 +17,7 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <param name="id">用户id</param>
         /// <returns></returns>
-        /// 1
+        /// 
         [HttpGet]
         public List<ModelInfo> OrderShow(Guid id)
         {
@@ -46,8 +47,7 @@ namespace Take_Out_Project_API.Controllers
         {
             return bll.FtOrder(id);
         }
-
-
+        
         /// <summary>
         /// 订单详情    
         /// </summary>
@@ -67,30 +67,6 @@ namespace Take_Out_Project_API.Controllers
         public List<ModelInfo> ShowMenu(Guid OrderId)
         {
             return bll.ShowMenu(OrderId);
-        }
-
-
-        /// <summary>
-        /// 退款表添加
-        /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        /// 
-        [HttpGet]
-        public int Refund(ModelInfo m)
-        {
-            return bll.Refund(m);
-        }
-        /// <summary>
-        /// 评论添加
-        /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        /// 
-        [HttpGet]
-        public int Comment(ModelInfo m)
-        {
-            return bll.Comment(m);
         }
     }
 }

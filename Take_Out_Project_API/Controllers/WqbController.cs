@@ -54,9 +54,9 @@ namespace Take_Out_Project_API.Controllers
         /// <param name="UserId">用户主键参数</param>
         /// <returns></returns>
         [HttpGet]
-        public List<ModelInfo> OrderParticulars(Guid UserId)
+        public List<ModelInfo> OrderParticulars(Guid OrderId)
         {
-            return bll.OrderParticulars(UserId);
+            return bll.OrderParticulars(OrderId);
         }
         /// <summary>
         /// 菜单详情中的菜品
@@ -67,6 +67,66 @@ namespace Take_Out_Project_API.Controllers
         public List<ModelInfo> ShowMenu(Guid OrderId)
         {
             return bll.ShowMenu(OrderId);
+        }
+        /// <summary>
+        /// 退款表添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int Refund(string str)
+        {
+            var m = JsonConvert.DeserializeObject<ModelInfo>(str);
+            return bll.Refund(m);
+        }
+        /// <summary>
+        /// 评论添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int Comment(string str)
+        {
+            var m = JsonConvert.DeserializeObject<ModelInfo>(str);
+            return bll.Comment(m);
+        }
+
+        /// <summary>
+        /// 修改订单状态评论完成
+        /// </summary>
+        /// <param name="OrderId">订单主键参数</param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int UptComment(Guid OrderId)
+        {
+            return bll.UptComment(OrderId);
+        }
+
+        /// <summary>
+        /// 修改订单状态退款中
+        /// </summary>
+        /// <param name="OrderId">订单主键参数</param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int UptRefund(Guid OrderId)
+        {
+            return bll.UptRefund(OrderId);
+        }
+
+        /// <summary>
+        /// 修改订单状态退款完成
+        /// </summary>
+        /// <param name="OrderId">订单主键参数</param>
+        /// <returns></returns>
+        /// 
+        [HttpGet]
+        public int UptRefundOk(Guid OrderId)
+        {
+            return bll.UptRefundOk(OrderId);
         }
     }
 }

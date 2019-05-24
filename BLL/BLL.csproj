@@ -74,5 +74,8 @@
       <Name>ModelInfo</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\BLL.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

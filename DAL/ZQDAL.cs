@@ -25,9 +25,9 @@ namespace DAL
         /// 获取用户个人信息
         /// </summary>
         /// <returns></returns>
-        public List<ModelInfo> Show(string phone)
+        public List<ModelInfo> Show(string userid)
         {
-            string sql = "select * from UserInfo where UserPhone='"+phone+"'";
+            string sql = "select * from UserInfo where UserId='"+ userid + "'";
             var list = db.GetToList<ModelInfo>(sql);
             return list;
         }
@@ -43,13 +43,13 @@ namespace DAL
             return list;
         }
         /// <summary>
-        /// 修改地址
+        /// 修改优惠劵状态
         /// </summary>
         /// <param name="mi"></param>
         /// <returns></returns>
-        public int UptDZ(ModelInfo mi)
+        public int UptYH(string id)
         {
-            string sql = string.Format("update UserInfo set UserAddress='{0}' where UserPhone='{1}'",mi.UserAddress, mi.UserPhone);
+            string sql = string.Format("update DiscountsTable set DiscountStatic=0 where DiscountsId='{0}'", id);
             int i = db.ExecuteNonQuery(sql);
             return i;
         }

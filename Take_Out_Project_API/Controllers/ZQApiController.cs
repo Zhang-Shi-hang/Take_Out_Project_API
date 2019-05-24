@@ -30,10 +30,10 @@ namespace Take_Out_Project_API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public List<ModelInfo> Show(string phone)
+        public List<ModelInfo> Show(string userid)
         {
 
-            return zb.Show(phone);
+            return zb.Show(userid);
         }
         /// <summary>
         /// 优惠表显示
@@ -47,15 +47,15 @@ namespace Take_Out_Project_API.Controllers
             return zb.ShowYH(id);
         }
         /// <summary>
-        /// 修改地址
+        /// 修改优惠劵状态
         /// </summary>
         /// <param name="mi"></param>
         /// <returns></returns>
-        [HttpPut]
-        public int UptDZ(string json)
+        [HttpGet]
+        public int UptYH(string id)
         {
-            var mi = JsonConvert.DeserializeObject<ModelInfo>(json);
-            return zb.UptDZ(mi);
+            
+            return zb.UptYH(id);
         }
     }
 }

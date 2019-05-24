@@ -45,6 +45,28 @@ namespace DAL
             return mo;
         }
 
+        /// <summary>
+        /// 退款表添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int Refund(ModelInfo m)
+        {
+            string sql = string.Format("insert into RefundTable values('{0}','{1}')", m.RefundCause, m.RefundExplain);
+            var dt = db.ExecuteNonQuery(sql);
+            return dt;
+        }
+        /// <summary>
+        /// 评论添加
+        /// </summary>
+        /// <param name="m"></param>
+        /// <returns></returns>
+        public int Comment(ModelInfo m)
+        {
+            string sql = string.Format("insert into CommentTable values('{0}','{1}','{2}','{3}','{4}')", m.CommentContent, m.CommentTime, m.Uid, m.Sid, m.CommentScore);
+            var dt = db.ExecuteNonQuery(sql);
+            return dt;
+        }
 
         /// <summary>
         /// 订单详情    
@@ -67,29 +89,6 @@ namespace DAL
             string sql = $"select * from GreensTable a join DetailTable b on a.GreensId=b.Gid where Oid='{OrderId}'";
             var list = db.GetToList<ModelInfo>(sql);
             return list;
-        }
-
-        /// <summary>
-        /// 退款表添加
-        /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        public int Refund(ModelInfo m)
-        {
-            string sql = string.Format("insert into RefundTable values('{0}','{1}')", m.RefundCause, m.RefundExplain);
-            var dt = db.ExecuteNonQuery(sql);
-            return dt;
-        }
-        /// <summary>
-        /// 评论添加
-        /// </summary>
-        /// <param name="m"></param>
-        /// <returns></returns>
-        public int Comment(ModelInfo m)
-        {
-            string sql = string.Format("insert into CommentTable values('{0}','{1}','{2}','{3}','{4}')", m.CommentContent, m.CommentTime, m.Uid, m.Sid, m.CommentScore);
-            var dt = db.ExecuteNonQuery(sql);
-            return dt;
         }
     }
 }

@@ -171,5 +171,16 @@ namespace Take_Out_Project_API.Controllers
         {
             return bll.SearchAddress(Uid);
         }
+        /// <summary>
+        /// 添加用户积分
+        /// </summary>
+        /// <param name="uid">用户主键Id</param>
+        /// <param name="Integral">用户积分参数</param>
+        /// <returns></returns>
+        [HttpGet]
+        public int AddIntegral(Guid uid, decimal Integral)
+        {
+            return bll.AddIntegral(uid, Integral);
+        }
     }
 }

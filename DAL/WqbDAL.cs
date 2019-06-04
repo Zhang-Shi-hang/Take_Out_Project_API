@@ -52,7 +52,7 @@ namespace DAL
         /// <returns></returns>
         public int Refund(ModelInfo m)
         {
-            string sql = string.Format("insert into RefundTable values(newid()'{0}','{1}')", m.RefundCause, m.RefundExplain);
+            string sql = string.Format("insert into RefundTable values(newid(),'{0}','{1}','{2}')", m.RefundCause, m.RefundExplain,m.Oid);
             var dt = db.ExecuteNonQuery(sql);
             return dt;
         }

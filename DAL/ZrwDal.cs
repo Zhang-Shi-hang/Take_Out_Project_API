@@ -198,5 +198,16 @@ namespace DAL
                 return false;
             }
         }
+        /// <summary>
+        /// 添加用户积分
+        /// </summary>
+        /// <param name="uid">用户主键Id</param>
+        /// <param name="Integral">用户积分参数</param>
+        /// <returns></returns>
+        public int AddIntegral(Guid uid, decimal Integral)
+        {
+            string sql = $"update UserInfo set UserIntegral=UserIntegral+{Integral} where UserId='{uid}'";
+            return db.ExecuteNonQuery(sql);
+        }
     }
 }

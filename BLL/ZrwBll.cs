@@ -153,5 +153,15 @@ namespace BLL
         {
             return dal.SearchAddress(Uid);
         }
+        /// <summary>
+        /// 添加用户积分
+        /// </summary>
+        /// <param name="uid">用户主键Id</param>
+        /// <param name="Integral">用户积分参数</param>
+        /// <returns></returns>
+        public int AddIntegral(Guid uid, decimal Integral)
+        {
+            return dal.AddIntegral(uid,Integral);
+        }
     }
 }
